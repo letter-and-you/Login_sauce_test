@@ -1,0 +1,53 @@
+positive_login_cases:
+  -
+    username: standard_user
+    passwd: secret_sauce
+    description: 标准用户登录成功
+  -
+    username: problem_user
+    passwd: secret_sauce
+    description: 问题用户登录成功
+  -
+    username: performance_glitch_user
+    passwd: secret_sauce
+    description: 性能故障用户登录成功
+  -
+    username: visual_user
+    passwd: secret_sauce
+    description: 可视化测试用户登录成功
+  -
+    username: error_user
+    passwd: secret_sauce
+    description: 错误用户登录成功
+negative_login_cases:
+  #无效账号密码登录失败
+  -
+    username: locked_out_user
+    passwd: secret_sauce
+    description: 被锁定用户登录失败
+  -
+    username: standard_user
+    passwd: wrong_password
+    description: 标准用户使用错误密码登录失败
+  #空值登录失败
+  -
+    username: ""
+    passwd: secret_sauce
+    description: 空用户名登录失败
+  -
+    username: standard_user
+    passwd: ""
+    description: 空密码登录失败
+  -
+    username: ""
+    passwd: ""
+    description: 空用户名和空密码登录失败
+  #边界值测试
+  -
+    username: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+    passwd: secret_sauce
+    description: 超长用户名登录失败
+  -
+    username: standard_user 
+    passwd: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+    description: 超长密码登录失败
